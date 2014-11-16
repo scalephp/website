@@ -1,0 +1,35 @@
+{
+    "name":        "scalephp/framework",
+    "description": "Scalable PHP framework, a PSR compliant evolution of Kohana",
+    "homepage":    "https://scalephp.github.io/framework/",
+    "keywords":    ["php", "mvc", "framework", "kohana"],
+    "authors": [
+        {
+            "name":     "scalephp",
+            "role":     "maintainer",
+            "homepage": "https://scalephp.github.io/framework/"
+        },            
+        {
+            "name":     "Kohana Team",
+            "email":    "team@kohanaframework.org",
+            "homepage": "http://kohanaframework.org/team",
+            "role":     "developer"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/scalephp/framework/issues",
+        "source": "https://github.com/scalephp/framework"
+    },
+    "autoload": {
+        "psr-4": {
+                "Scale\\App\\": "classes/"
+        }            
+    },
+    "require": {
+        "composer/installers": "~1.0",
+        "php":                 ">=5.4.0",
+        "scalephp/kernel":      "*",
+        "scalephp/kli":         "*",
+        "scalephp/http":        "*"
+    }
+}
