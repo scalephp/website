@@ -1,12 +1,8 @@
 <?php
 
-/**
- * Application scopes relative to DOCROOT
- */
-
 return [
-
-    'application'  => ['application/'],
-    'kli'  => ['vendor/scalephp/kli/']
-
+    'application' => ['/'],
+    'kernel'      => ['/vendor/scalephp/kernel/'],
+    'kli'         => ['/vendor/scalephp/kli/'],
+    'http'        => ['/vendor/scalephp/http/'],
 ];
