@@ -1,5 +1,9 @@
 <?php
 
-require '../vendor/autoload.php';
+/**
+ * Scale Framework Index
+ * 
+ * All HTTP requests will enter through here
+ */
 
-echo 'hello';
+require '../index.php';

@@ -25,11 +25,25 @@
                 "Scale\\App\\": "classes/"
         }            
     },
+   "repositories": [
+      {
+         "type": "vcs",
+         "url": "/var/www/cyrgit/kernel"
+      },
+      {
+       	 "type": "vcs",
+         "url": "/var/www/cyrgit/http"
+      },
+      {
+       	 "type": "vcs",
+         "url": "/var/www/cyrgit/kli"
+      }
+   ],
     "require": {
         "composer/installers": "~1.0",
         "php":                 ">=5.4.0",
-        "scalephp/kernel":      "*",
-        "scalephp/kli":         "*",
-        "scalephp/http":        "*"
+        "scalephp/kernel":     "dev-master",
+        "scalephp/kli":        "dev-3.4/feature/cli-namespace",
+        "scalephp/http":       "dev-master"
     }
 }
