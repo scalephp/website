@@ -8,9 +8,9 @@
 
 return [
     
-    'index' => [
-        'controller' => 'Index',
-        'method' => 'index',
+    '/index' => [
+        'controller' => '\\App\\HTTP\\HTML\\Run\\Index',
+        'action' => 'index',
         'ttl' => false,
         'params' => []
     ],
