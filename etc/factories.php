@@ -29,9 +29,14 @@ $io = function ($name) {
 /**
  *
  */
-$options = function ($name = 'Options') use ($io) {
+$input = function ($name = 'Options') use ($io) {
 
     return $io($name);
+};
+
+$options = function () use ($io) {
+    
+    return $io('Options');
 };
 
 /**
@@ -81,7 +86,7 @@ $executor = function (
     $command,
     $request,
     $controller,
-    $options,
+    $input,
     $task
 ) {
     $env = new Scale\Kernel\Core\Environment();
@@ -92,6 +97,6 @@ $executor = function (
 
     } elseif ($api === 'cli') {
 
-        return $command($subject, $params, $options(), $task);
+        return $command($subject, $params, $input(), $task);
     }
 };

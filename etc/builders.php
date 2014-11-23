@@ -28,9 +28,9 @@ return [
     
     'scale\http\http\io\requestinterface' => $request,
 
-    'scale\kli\cli\io\inputinterface'  => function() use ($io) { return $io('Options'); },
+    'scale\kli\cli\io\inputinterface'  => $input,
 
-    'scale\kli\cli\io\outputinterface' => function() use ($io) { return $io('CLImate'); },
+    'scale\kli\cli\io\outputinterface' => $output,
 
 
     /**
