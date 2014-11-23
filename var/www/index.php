@@ -6,4 +6,4 @@
  * All HTTP requests will enter through here
  */
 
-require '../index.php';
+require '../../index.php';
