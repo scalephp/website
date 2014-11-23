@@ -3,6 +3,7 @@
     "description": "Scalable PHP framework",
     "homepage":    "https://scalephp.github.io/framework/",
     "keywords":    ["php", "mvc", "framework"],
+    "license":     "MIT",
     "authors": [
         {
             "name":     "Scale PHP Framework",
@@ -16,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-                "Scale\\App\\": "classes/"
+                "App\\": "usr/lib/"
         }            
     },
     "require": {

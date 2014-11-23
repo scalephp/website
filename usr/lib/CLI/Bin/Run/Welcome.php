@@ -26,7 +26,7 @@ class Welcome extends Task implements ExecutableInterface
 	 *
 	 * @return void
 	 */
-    protected function _execute(array $params)
+    protected function run(array $params)
     {
         $data = [
             [

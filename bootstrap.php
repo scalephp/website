@@ -10,6 +10,6 @@ require 'vendor/scalephp/http/bootstrap.php';
 date_default_timezone_set('UTC');
 set_exception_handler(array('\\Scale\\Kernel\\Core\\RuntimeException', 'handler'));
 
-$api = (PHP_SAPI == 'cli' || PHP_SAPI == 'cli-server') ? 'cli' : 'http';
+$container = new \Scale\Kernel\Core\Container;
 
-return new \Scale\Kernel\Core\Application($api);
+return $container->constructInject('\Scale\Kernel\Core\Application');

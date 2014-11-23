@@ -5,8 +5,8 @@ use Scale\Http\HTTP\HTML\Controller;
 class Index extends Controller
 {
 
-    public function index()
+    public function index($params)
     {
-        echo 'Hello World';
+        echo 'Hello World!';
     }
 }
