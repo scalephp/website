@@ -3,13 +3,6 @@ Options +FollowSymLinks
 # Turn on URL rewriting
 RewriteEngine On
 
-# Installation directory
-# RewriteBase /kohana/
-
-# Protect application and system files from being viewed
-# This is only necessary when these files are inside the webserver document root
-# RewriteRule ^(?:application|modules|system)\b index.php/$0 [L]
-
 # Allow any files or directories that exist to be displayed directly
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
