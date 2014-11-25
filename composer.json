@@ -21,14 +21,10 @@
         }            
     },
     "require": {
-        "composer/installers": "~1.0",
-        "php":                 ">=5.4.0",
-        "scalephp/kernel":     "dev-master",
-        "scalephp/kli":        "dev-4.0/master",
-        "scalephp/http":       "dev-master"
-    },
-    "require-dev": {
-        "phpmd/phpmd" :        "@stable",
-        "phploc/phploc":       "*"
-    }    
+        "php":                  ">=5.4.0",
+        "scalephp/kernel":      "dev-master",
+        "scalephp/kli":         "dev-4.0/master",
+        "scalephp/http":        "dev-master",
+        "doctrine/mongodb-odm": "1.0.0-BETA11"
+    }
 }

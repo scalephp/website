@@ -1,21 +1,34 @@
-<?php
+<?php namespace App;
 
+/**
+ * 
+ */
+$environment = function () {
+    return new Scale\Kernel\Core\Environment;
+};
+
+/**
+ * 
+ */
 $application = function (\Scale\Kernel\Interfaces\ExecutorInterface $executor) {
 
     return new \Scale\Kernel\Core\Application($executor);
 };
 
-$router = function ($uri = true, $params = true, $request = null, $controller = null) {
+/**
+ * 
+ */
+$router = function ($request = null, $controller = null) {
 
-    return new \Scale\Http\HTTP\Router($uri, $params, $request, $controller);
+    return new \Scale\Http\HTTP\Router($request, $controller);
 };
 
 /**
  *
  */
-$command = function ($name = true, $params = true, $input = null, $task = null) {
+$command = function ($input = null, $task = null) {
 
-    return new \Scale\Kli\CLI\Command($name, $params, $input, $task);
+    return new \Scale\Kli\CLI\Command($input, $task);
 };
 
 /**
@@ -68,7 +81,7 @@ $view = function ($file = null, $data = null, $ns = null) {
  */
 $controller = function ($name) {
 
-    return (new \Scale\Http\HTTP\ControllerFactory())->factory($name);
+    return (new \Scale\Http\HTTP\ControllerFactory("/var/www/cyrgit/framework"))->factory($name);
 };
 
 $request = function ($env) {
@@ -78,10 +91,7 @@ $request = function ($env) {
 /**
  *
  */
-$executor = function (
-    $subject = true,
-    $params = true
-) use (
+$executor = function () use (
     $router,
     $command,
     $request,
@@ -89,14 +99,14 @@ $executor = function (
     $input,
     $task
 ) {
-    $env = new Scale\Kernel\Core\Environment();
+    $env = new \Scale\Kernel\Core\Environment();
     $api = $env->getApi();
 
     if ($api === 'http') {
-        return $router($subject, $params, $request($env), $controller);
+        return $router($request($env), $controller);
 
     } elseif ($api === 'cli') {
 
-        return $command($subject, $params, $input(), $task);
+        return $command($input(), $task);
     }
 };

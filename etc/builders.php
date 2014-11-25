@@ -37,6 +37,8 @@ return [
      *
      *
      */
+    'environment' => $environment,
+    
     'application' => $application,
     
     'executor'    => $executor,
