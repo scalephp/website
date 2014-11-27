@@ -15,7 +15,7 @@
  * @author     Kli Team
  */
 
-include App\PATH.'/etc/factories.php';
+include 'factories.php';
 
 return [
 
@@ -25,8 +25,10 @@ return [
      *
      */
     'scale\kernel\interfaces\executorinterface' => $executor,
-    
+
     'scale\http\http\io\requestinterface' => $request,
+
+    'scale\http\http\io\responseinterface' => $response,
 
     'scale\kli\cli\io\inputinterface'  => $input,
 
@@ -38,9 +40,9 @@ return [
      *
      */
     'environment' => $environment,
-    
+
     'application' => $application,
-    
+
     'executor'    => $executor,
 
     'options'     => $options,
@@ -52,7 +54,7 @@ return [
     'router'      => $router,
 
     'task'        => $task,
-    
+
     'controller'  => $controller,
 
     'view'        => $view,

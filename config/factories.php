@@ -1,33 +1,30 @@
 <?php namespace App;
 
 /**
- * 
+ * @return Environment
  */
 $environment = function () {
-    return new Scale\Kernel\Core\Environment;
+    return new \Scale\Kernel\Core\Environment;
 };
 
 /**
- * 
+ * @return Application
  */
 $application = function (\Scale\Kernel\Interfaces\ExecutorInterface $executor) {
-
     return new \Scale\Kernel\Core\Application($executor);
 };
 
 /**
- * 
+ * @return Router
  */
-$router = function ($request = null, $controller = null) {
-
-    return new \Scale\Http\HTTP\Router($request, $controller);
+$router = function ($request = null, $response = null, $controller = null) {
+    return new \Scale\Http\HTTP\Router($request, $response, $controller);
 };
 
 /**
- *
+ * @return Command
  */
 $command = function ($input = null, $task = null) {
-
     return new \Scale\Kli\CLI\Command($input, $task);
 };
 
@@ -35,7 +32,6 @@ $command = function ($input = null, $task = null) {
  *
  */
 $io = function ($name) {
-
     return (new \Scale\Kli\CLI\IO\IO())->factory($name);
 };
 
@@ -43,12 +39,13 @@ $io = function ($name) {
  *
  */
 $input = function ($name = 'Options') use ($io) {
-
     return $io($name);
 };
 
+/**
+ *
+ */
 $options = function () use ($io) {
-    
     return $io('Options');
 };
 
@@ -56,7 +53,6 @@ $options = function () use ($io) {
  *
  */
 $output = function ($name = 'CLImate') use ($io) {
-
     return $io($name);
 };
 
@@ -64,7 +60,6 @@ $output = function ($name = 'CLImate') use ($io) {
  *
  */
 $task = function ($name) {
-
     return (new \Scale\Kli\CLI\Bin\TaskFactory())->factory($name);
 };
 
@@ -72,7 +67,6 @@ $task = function ($name) {
  *
  */
 $view = function ($file = null, $data = null, $ns = null) {
-
     return new \Scale\Kernel\Core\View($file, $data, $ns);
 };
 
@@ -80,12 +74,21 @@ $view = function ($file = null, $data = null, $ns = null) {
  *
  */
 $controller = function ($name) {
-
-    return (new \Scale\Http\HTTP\ControllerFactory("/var/www/cyrgit/framework"))->factory($name);
+    return (new \Scale\Kernel\Core\Factory())->factory($name);
 };
 
+/**
+ *
+ */
 $request = function ($env) {
     return (new \Scale\Http\HTTP\IO\RequestFactory())->factory($env);
+};
+
+/**
+ *
+ */
+$response = function ($env) {
+    return (new \Scale\Http\HTTP\IO\ResponseFactory())->factory($env);
 };
 
 /**
@@ -95,6 +98,7 @@ $executor = function () use (
     $router,
     $command,
     $request,
+    $response,
     $controller,
     $input,
     $task
@@ -103,10 +107,8 @@ $executor = function () use (
     $api = $env->getApi();
 
     if ($api === 'http') {
-        return $router($request($env), $controller);
-
+        return $router($request($env), $response($env), $controller);
     } elseif ($api === 'cli') {
-
         return $command($input(), $task);
     }
 };

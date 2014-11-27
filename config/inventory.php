@@ -11,13 +11,19 @@
  */
 
 return [
+    'scale\kernel\interfaces\executorinterface',
+    'scale\http\http\io\requestinterface',
+    'scale\http\http\io\responseinterface',
     'scale\kli\cli\io\inputinterface',
     'scale\kli\cli\io\outputinterface',
+    'environment',
+    'application',
     'executor',
     'options',
     'output',
     'command',
-    'route',
+    'router',
     'task',
+    'controller',
     'view',
 ];
