@@ -1,23 +1,23 @@
 {
-    "name":        "scalephp/framework",
-    "description": "Scalable PHP framework",
-    "homepage":    "https://scalephp.github.io/framework/",
+    "name":        "scalephp/website",
+    "description": "Scalable PHP website",
+    "homepage":    "https://scalephp.github.io/website/",
     "keywords":    ["php", "mvc", "framework"],
     "license":     "MIT",
     "authors": [
         {
-            "name":     "Scale PHP Framework",
+            "name":     "Scale PHP Website",
             "role":     "maintainer",
             "homepage": "https://scalephp.github.io/framework/"
         }
     ],
     "support": {
-        "issues": "https://github.com/scalephp/framework/issues",
-        "source": "https://github.com/scalephp/framework"
+        "issues": "https://github.com/scalephp/website/issues",
+        "source": "https://github.com/scalephp/website"
     },
     "autoload": {
         "psr-4": {
-                "App\\": "usr/lib/"
+                "App\\": "classes/"
         }            
     },
     "require": {
