@@ -30,15 +30,17 @@ return [
 
     'scale\http\http\io\responseinterface' => $response,
 
-    'scale\kli\cli\io\inputinterface'  => $input,
+    'scale\cli\cli\io\inputinterface'  => $input,
 
-    'scale\kli\cli\io\outputinterface' => $output,
+    'scale\cli\cli\io\outputinterface' => $output,
 
 
     /**
      *
      *
      */
+    'container'   => $container,
+    
     'environment' => $environment,
 
     'application' => $application,

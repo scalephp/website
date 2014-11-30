@@ -7,12 +7,18 @@
  */
 
 return [
-    
+
     '/index' => [
         'controller' => '\\App\\HTTP\\HTML\\Run\\Index',
         'action' => 'index',
         'ttl' => false,
         'params' => []
     ],
-    
+
+    '/api' => [
+        'controller' => '\\App\\HTTP\\JSON\\Run\\API',
+        'action' => 'index',
+        'ttl' => false,
+        'params' => []
+    ],
 ];
