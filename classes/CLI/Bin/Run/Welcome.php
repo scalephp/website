@@ -10,8 +10,8 @@
 
 namespace App\CLI\Bin\Run;
 
-use Scale\Kli\CLI\Bin\Task;
-use Scale\Kli\CLI\Bin\ExecutableInterface;
+use Scale\Cli\CLI\Bin\Task;
+use Scale\Cli\CLI\Bin\ExecutableInterface;
 
 class Welcome extends Task implements ExecutableInterface
 {
