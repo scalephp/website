@@ -21,9 +21,12 @@
         }            
     },
     "require": {
-        "php":                  ">=5.4.0",
-        "scalephp/kernel":      "dev-master",
-        "scalephp/cli":         "dev-4.0/master",
-        "scalephp/http":        "dev-master"
+        "php":                       ">=5.4.0",
+        "scalephp/kernel":           "dev-master",
+        "scalephp/cli":              "dev-4.0/master",
+        "scalephp/http":             "dev-master",
+        "cyrgit/closure":            "dev-master",
+        "cyrgit/loader":             "dev-master",
+        "ext-ev":                    "*"
     }
 }

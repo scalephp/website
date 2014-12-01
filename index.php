@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * Load a new Scale Application
