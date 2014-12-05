@@ -27,8 +27,8 @@ $io = function ($name) {
 /**
  *
  */
-$input = function ($name = 'Options') use ($io) {
-    return $io($name);
+$input = function ($env) {
+    return new \Scale\Cli\CLI\IO\Provider\Options($env);
 };
 
 /**
@@ -41,8 +41,9 @@ $options = function () use ($io) {
 /**
  *
  */
-$output = function ($name = 'CLImate') use ($io) {
-    return $io($name);
+$output = function ($name = null) use ($io) {
+    $name = ($name) ?: '\Scale\Cli\CLI\IO\Provider\CLImate';
+    return (new \Scale\Kernel\Core\Factory())->factory($name);
 };
 
 /**
@@ -62,8 +63,8 @@ $request = function ($env) {
 /**
  *
  */
-$task = function ($name) {
-    return (new \Scale\Cli\CLI\Bin\TaskFactory())->factory($name);
+$task = function ($name, $input, $output, $view) {
+    return (new \Scale\Cli\CLI\Bin\TaskFactory())->factory($name, $input, $output, $view);
 };
 
 /**
@@ -76,8 +77,8 @@ $controller = function ($name) {
 /**
  * @return Command
  */
-$command = function ($input = null, $task = null) {
-    return new \Scale\Cli\CLI\Command($input, $task);
+$command = function ($input = null, $output = null, $task = null, $view = null) {
+    return new \Scale\Cli\CLI\Command($input, $output, $task, $view);
 };
 
 /**
@@ -97,7 +98,9 @@ $executor = function () use (
     $response,
     $controller,
     $input,
-    $task
+    $output,
+    $task,
+    $view
 ) {
     $env = new \Scale\Kernel\Core\Environment();
     $api = $env->getApi();
@@ -105,7 +108,7 @@ $executor = function () use (
     if ($api === 'http') {
         return $router($request($env), $response($env), $controller);
     } elseif ($api === 'cli') {
-        return $command($input(), $task);
+        return $command($input($env), $output(), $task, $view);
     }
 };
 
