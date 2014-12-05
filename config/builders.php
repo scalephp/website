@@ -34,13 +34,15 @@ return [
 
     'scale\cli\cli\io\outputinterface' => $output,
 
+    'league\climate\util\writer\writerinterface'=> new League\CLImate\Util\Writer\StdOut(),
+
 
     /**
      *
      *
      */
     'container'   => $container,
-    
+
     'environment' => $environment,
 
     'application' => $application,
@@ -48,6 +50,8 @@ return [
     'executor'    => $executor,
 
     'options'     => $options,
+
+    'input'       => $input,
 
     'output'      => $output,
 
