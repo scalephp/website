@@ -26,5 +26,4 @@ set_exception_handler(['\Scale\Kernel\Core\RuntimeException', 'handler']);
  *
  *
  */
-return (new Container(new Path(__DIR__.'/')))
-    ->constructInject('\Scale\Kernel\Core\Application');
+return new Container(realpath(__DIR__.'/'));
