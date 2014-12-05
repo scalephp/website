@@ -7,6 +7,6 @@ class Index extends Controller
 
     public function index()
     {
-        echo 'Hello World!';
+        $this->renderView('hello');
     }
 }
