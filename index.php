@@ -1,11 +1,21 @@
 <?php
 
 /**
- * Load a new Scale Application
+ * Load Container
  */
-$app = require 'bootstrap.php';
+$container = require 'bootstrap.php';
 
 /**
- * Execute it!
+ * Inject construct Application
  */
-$app->execute();
+$app = $container->constructInject('\Scale\Kernel\Core\Application');
+
+/**
+ * Execute it
+ */
+$response = $app->execute();
+
+/**
+ * Render it
+ */
+$response->render();
