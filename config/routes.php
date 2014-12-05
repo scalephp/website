@@ -7,7 +7,12 @@
  */
 
 return [
-
+    '/' => [
+        'controller' => '\\App\\HTTP\\HTML\\Run\\Index',
+        'action' => 'index',
+        'ttl' => false,
+        'params' => []
+    ],
     '/index' => [
         'controller' => '\\App\\HTTP\\HTML\\Run\\Index',
         'action' => 'index',
