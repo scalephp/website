@@ -25,8 +25,7 @@
         "scalephp/kernel":           "dev-master",
         "scalephp/cli":              "dev-4.0/master",
         "scalephp/http":             "dev-master",
-        "cyrgit/closure":            "dev-master",
-        "cyrgit/loader":             "dev-master",
-        "ext-ev":                    "*"
+        "cyrrill/closure":           "dev-master",
+        "cyrrill/loader":            "dev-master"
     }
 }
